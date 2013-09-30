@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\picas"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "D:\\dashboard"
+		}
+	]
+}
