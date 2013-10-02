@@ -74,15 +74,17 @@ a{text-decoration: none:;}
 }
 
 .logo img{
-    margin-left: 320px;
+    margin-left: 20%;
     margin-top: 10px;
 }
 
 nav {
-     float: right;
-    margin-top: 49px;
-    margin-right: 320px;
-    color: #2e416b;
+    color: #2E416B;
+    float: right;
+    margin-left: 46%;
+    margin-right: 20%;
+    margin-top: -47px;
+    position: absolute;
 }
 
 nav li{
@@ -161,7 +163,7 @@ nav li:hover{
 }
 
 .career{
-    width: 460px;
+    width: 457px;
     height: 320px;
     margin-top: 40px; 
     background: none repeat scroll 0 0 #FFFFFF;
