@@ -28,6 +28,13 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/SEGOEUI.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     line-height: 1;
     font-family: 'Open Sans', sans-serif;
@@ -82,6 +89,7 @@ nav {
 nav li{
     display: inline;
     margin-right: 58px;
+    cursor: pointer;
 }
 
 nav li:hover{
@@ -90,7 +98,7 @@ nav li:hover{
 
 
 .search{
-    background-image: url('images/background_search.jpg');
+    background-image: url('images/background_search.png');
     height: 416px;
     margin-top: 15px;
 }
@@ -112,20 +120,20 @@ nav li:hover{
     color: #FFFFFF;
     font-size: 26px;
     height: 70px;
-    padding-left: 30px;
-    padding-right: 83px;
+    padding-left: 30px;   
     width: 473px;
     border: 1px solid;
 }
 
-.div_search{
-    margin-left: 499px;
-    margin-top: -68px;
+.div_search{ 
+    margin-left: 977px;
+    margin-top: -67px;
+    position: absolute;
     
 }
  .button_search{
     background: none repeat scroll 0 0 #8CA3CE;
-    background-image: url('images/lupa.gif') ;
+    background-image: url('images/lupa.png') ;
     background-repeat:no-repeat;
     background-position:center; 
     border-radius: 5px 5px 5px 5px;    
@@ -173,10 +181,15 @@ nav li:hover{
 
 }
 .button_career_first{    
-    background: url("images/copa.gif") no-repeat scroll center center #b0bccf;
-    width: 150px;
-    height: 110px;
+    background: url("images/copa.png") no-repeat scroll center center #B0BCCF;
+   -moz-box-sizing: border-box;
+ color: #FFFFFF;
     display: inline-block;
+    height: 110px;
+    padding-top: 91px;
+    position: relative;
+    text-align: center;
+    width: 150px;
    
 }
 
@@ -187,29 +200,39 @@ nav li:hover{
 }
 
 .button_career_first:hover{
-    background: url("images/copa.gif") no-repeat scroll center center #5186d9;    
+    background: url("images/copa.png") no-repeat scroll center center #5186d9;    
 }
 
 .button_career_description{    
-    background: url("images/description.gif") no-repeat scroll center center #b0bccf;
-    width: 150px;
-    height: 110px;
+    background: url("images/description.png") no-repeat scroll center center #b0bccf;
+    -moz-box-sizing: border-box;
+   color: #FFFFFF;
     display: inline-block;
+    height: 110px;
+    padding-top: 91px;
+    position: relative;
+    text-align: center;
+    width: 150px;
 }
 
 .button_career_description:hover{
-    background: url("images/description.gif") no-repeat scroll center center #5186d9;    
+    background: url("images/description.png") no-repeat scroll center center #5186d9;    
 }
 
 .button_career_times{    
-    background: url("images/times.gif") no-repeat scroll center center #b0bccf;
-    width: 150px;
-    height: 110px;
+    background: url("images/times.png") no-repeat scroll center center #b0bccf;
+   -moz-box-sizing: border-box;
+     color: #FFFFFF;
     display: inline-block;
+    height: 110px;
+    padding-top: 91px;
+    position: relative;
+    text-align: center;
+    width: 150px;  
 }
 
 .button_career_times:hover{
-    background: url("images/times.gif") no-repeat scroll center center #5186d9;    
+    background: url("images/times.png") no-repeat scroll center center #5186d9;    
 }
 
 .border_left{
@@ -242,3 +265,57 @@ nav li:hover{
     color: white;
     font-size: 20px;
 }
+
+
+.footer{    
+    padding: 1px 300px;    
+    height: 100%;
+}
+
+.square_fooder{
+    display: inline-block;
+    background: none repeat scroll 0 0 #b0bccf;
+    width: 114px;
+    height: 114px;
+    border-radius: 5px 5px 5px 5px;    
+}
+
+.fixed{
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    position: absolute;
+    width: 300px;
+    text-align: justify;
+}
+.title{
+    display: block;    
+    color: #5186d9;
+}
+.text_footer{            
+     color: #7a7b7d;
+     font-size: 15px;
+}
+.input_form{    
+    background: none repeat scroll 0 0 #B0BCCF;
+    border: 1px solid;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    margin-top: 10px;
+}
+.name{
+    width: 450px;
+}
+
+#guardar{
+    background: url("images/button_save.png") no-repeat scroll center center #5186d9;
+    border: 0 none;
+    border-radius: 5px 5px 5px 5px;
+    height: 48px;
+    margin-top: 11px;
+    position: absolute;
+    width: 55px;
+ }
