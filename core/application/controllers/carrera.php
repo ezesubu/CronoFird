@@ -60,6 +60,17 @@ class carrera extends CI_Controller {
         }
         $this->load->view('test/test'); 
     }
+    public function get_race(){
+        $param = $_GET['term'];        
+        //while ($row_id = $results->fetchArray()) {
+        // more structure in data allows an easier processing
+        $options['myData'][] = array(
+            'turninId' => "asdf",
+            'title'    => "el pepes"
+           ); 
+        //}
+        echo json_encode($options);
+    }
 
 
 
