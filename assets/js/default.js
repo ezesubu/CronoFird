@@ -37,7 +37,8 @@ $(document).ready(function() {
 
   
   $('.select_category').change(function() {
-
+    window.location = '../competidor/get_competidor_categoria?id_categoria=' + $('.select_category').val();
+/*
      $.ajax ( {
           url: "../competidor/get_competidor_categoria",
           data: {id_categoria:$('.select_category').val()},
@@ -50,7 +51,7 @@ $(document).ready(function() {
                 }
               }));
           },       
-      })         
+      })         */
   });
-
+  
 });

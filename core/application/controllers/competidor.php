@@ -9,23 +9,57 @@ class competidor extends CI_Controller {
     }
 
     public function get_competidor_categoria(){
-        $this->load->database();
-        var_dump($_GET);
-        die;
-        $param = $_GET['id_categoria'];
-        $query = $this->db->query("SELECT * FROM tbl_carrera where car_nombre like '%".$_GET['term']."%';");         
-        foreach ($query->result_array() as $row)
-        {
-        $options['myData'][] = array(
-            'turninId' =>  $row['car_id'],
-            'title'    => $row['car_nombre']
-           );         
-        }
-        //while ($row_id = $results->fetchArray()) {
-        // more structure in data allows an easier processing
-        //}
-        echo json_encode($options);
-    }
 
-  
+        $this->load->model("Carrera_mdl");
+        $this->load->model("Categoria_mdl");
+        $this->load->model("Competidor_mdl");
+
+        $id = $_GET['id_categoria'];
+
+        try {
+            $objCategoria = $this->Categoria_mdl->getRow_ById($id);
+        } catch ( Exception $e){
+            ToJSONMsg("ERR",$e->getMessage());
+            return;
+        }
+        
+        try {
+            $objCarrera = $this->Carrera_mdl->getRow_ById($objCategoria->rel_car_id);
+        } catch ( Exception $e){
+            ToJSONMsg("ERR",$e->getMessage());
+            return;
+        }
+        
+        $objParams->arrWhere = NULL;
+        $objParams->arrWhere[] = "rel_car_id=$objCarrera->car_id";
+        
+        
+        try {
+            $objDatosCategorias = $this->Categoria_mdl->getAll($objParams); 
+        } catch(Exception $e){
+            ToJSONMsg("ERR", $e->getMessage());
+            return;
+        }
+
+        if($objDatosCategorias->Datos[0]->cat_id){
+            $categoria_id = $_GET['id_categoria'];
+            $objParams->arrWhere = NULL;
+            $objParams->arrWhere[] = "rel_cat_id = $categoria_id ";
+            
+            
+            try {
+                $objDatosCompetidor = $this->Competidor_mdl->getAll($objParams); 
+            } catch(Exception $e){
+                ToJSONMsg("ERR", $e->getMessage());
+                return;
+            }
+        }
+        
+        $objView->objSelectCategoria = $objCategoria;
+        $objView->objDatosCompetidor = $objDatosCompetidor;
+        $objView->objDatosCategoria = $objDatosCategorias;
+        $objView->objCarrera =$objCarrera;
+
+        $this->load->view("carrera/show_race.php",$objView);
+    }
 }

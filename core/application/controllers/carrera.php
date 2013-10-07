@@ -40,9 +40,9 @@ class carrera extends CI_Controller {
         $config2['image_library'] = 'gd2';            
         $config2['source_image'] =$_FILES['imagen_carrera']['tmp_name'];
         $config2['new_image'] = "./upload/".$_FILES['imagen_carrera']['name'];        
-        $config2['width'] = 75;
+        //$config2['width'] = 75;
         $config2['overwrite'] = FALSE;
-        $config2['height'] = 50;
+        //$config2['height'] = 50;
         
         $this->load->library('image_lib',$config2); 
         
@@ -70,7 +70,7 @@ class carrera extends CI_Controller {
         $arrUsuarios = $this->_readFile($strFilePath);
         foreach ($arrUsuarios as  $usuario) {            
             if($usuario['posicion'] == 'categoria'){
-                $arrCategoria['cat_nombre'] = $usuario['nombre'];
+                $arrCategoria['cat_nombre'] = $usuario['posicion_general'];
                 $arrCategoria['rel_car_id'] = $id_carrera;
                 try {
                     $id_categoria= $this->Categoria_mdl->addRow($arrCategoria);
@@ -79,14 +79,19 @@ class carrera extends CI_Controller {
                     return;
                 }    
             }
-            if( (int)($usuario['No']) ){
+            if( (int)($usuario['numero']) ){
                $arrCompetidor['com_posicion'] = $usuario['posicion'];
+               $arrCompetidor['com_posicion_general'] = $usuario['posicion_general'];
                $arrCompetidor['com_nombre'] = $usuario['nombre'];
-               $arrCompetidor['com_no'] = $usuario['No'];
+               $arrCompetidor['com_numero'] = $usuario['numero'];
                $arrCompetidor['com_edad'] = $usuario['edad'];
+               $arrCompetidor['com_sexo'] = $usuario['sexo'];
                $arrCompetidor['com_tiempo_oficial'] = $usuario['tiempo_oficial'];
-               $arrCompetidor['com_paso'] = $usuario['paso'];
+               $arrCompetidor['com_tiempo_tag'] = $usuario['tiempo_tag'];
+               $arrCompetidor['com_diferencia'] = $usuario['diferencia'];
+               $arrCompetidor['com_paso'] = $usuario['paso'];               
                $arrCompetidor['rel_cat_id'] = $id_categoria;
+
 
                try {
                     $id_competidor= $this->Competidor_mdl->addRow($arrCompetidor);
@@ -151,7 +156,7 @@ class carrera extends CI_Controller {
         $this->load->model("Categoria_mdl");
         $this->load->model("Competidor_mdl");
 
-        $id= $_GET['id_carrera'];;
+        $id= $_GET['id_carrera'];
         
         try {
             $objCarrera = $this->Carrera_mdl->getRow_ById($id);
@@ -202,10 +207,14 @@ class carrera extends CI_Controller {
 
            $arrConfig['arrFieldNames'] = array(
                 'posicion',
+                'posicion_general',
                 'nombre',
-                'No',
+                'numero',
                 'edad',
+                'sexo',
                 'tiempo_oficial',
+                'tiempo_tag',
+                'diferencia',
                 'paso'
             );
 

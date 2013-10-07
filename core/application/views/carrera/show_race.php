@@ -51,14 +51,13 @@
         </div>         
        
         <div class="div_race" style="margin-left : 24px;">
-            <select class="select_category">
-                  <option value="">Seleccione categoria</option>
+            <select class="select_category"> 
+                    <?php if($objSelectCategoria){
+                    echo "<option selected='selected' value=".$objSelectCategoria->cat_id.">".$objSelectCategoria->cat_nombre."</option>";
+                    }?>
                    <?php foreach ($objDatosCategoria->Datos as $categoria) {
                           echo "<option value=".$categoria->cat_id.">".$categoria->cat_nombre."</option>";
-                    } ?>
-
-                  
-             
+                    }?>
             </select>            
             <div class="resumen_carrera caja-sombra">
                 <div class="promedio_carrera">
@@ -113,15 +112,21 @@
         <?php foreach ($objDatosCompetidor->Datos as $competidor) {
             echo "<div class='div_user'>";
             echo "<div class='div_user_name'>";
-            echo "<div id='circle'>";
-            echo "<span class='innerTEXT_b'>".$competidor->com_no."</span>";
-            echo "</div>";
+            echo "<span class='innerTEXT'>".$competidor->com_numero."</span>";
             echo "<div class='text_name'>".$competidor->com_nombre."</div>";
+            if ($competidor->com_sexo == 'M'): 
             echo "<span class='info_user'>GENERO: HOMBRE</span>";
+            else:
+            echo "<span class='info_user'>GENERO: MUJER</span>";            
+            endif;
             echo "</div>";
             echo "<div class='div_user_numero'>";
             echo $competidor->com_posicion;
             echo "<span class='info_numero'>NUMERO EN LA COMPETENCIA</span>";
+            echo "</div>";
+            echo "<div class='div_user_numero_general'>";
+            echo $competidor->com_posicion_general;
+            echo "<span class='info_numero'>NUMERO POSICION GENERAL</span>";
             echo "</div>";
             echo "<div class='div_user_tiempo'>";
             echo $competidor->com_tiempo_oficial;
@@ -138,8 +143,8 @@
                 <div class="square_fooder">
                 </div>
                 <div class ="fixed">                        
-                        <span class="title">PURA VIDA</span><br>
-                        <span class="text_footer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non lectus sit amet arcu faucibus laoreet.</span><br>
+                    <span class="title">PURA VIDA</span><br>
+                    <span class="text_footer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non lectus sit amet arcu faucibus laoreet.</span><br>
                 </div>
 
         </div>        
