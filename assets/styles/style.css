@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 @font-face {
     font-family: 'Segoe UI';
-    src: url('fonts/SEGOEUI.ttf');
+    src: url('./fonts/SEGOEUI.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -64,7 +64,7 @@ a{text-decoration: none:;}
     width: 90px;
 }
 .content{
-    background: none repeat scroll 0 0 #eeefef;
+    background: none repeat scroll 0 0 #E9EAEA;
     padding: 1px 300px;    
     height: 100%;
 }
@@ -110,7 +110,6 @@ nav li:hover{
     color: white;
     padding-top: 90px;
 }
-
 .form_seach{
     padding-top: 60px;
     text-align: center;
@@ -128,7 +127,7 @@ nav li:hover{
 }
 
 .div_search{
-     left: 60%;
+    left: 60%;
     position: absolute;
     top: 66px;
 }
@@ -142,8 +141,231 @@ nav li:hover{
     width: 70px;    
     border: none;
  }
+
+ .user_list{
+    background-image: url('images/background_user.png');
+    padding-bottom: 85px;
+    padding-top: 85px;
+ }
+
+ .div_user{
+    width: 1024px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: 90px;
+    margin-left: 290px;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    margin-bottom: 20px; 
+    font-size: 35px;
+    color:#4877c0;
+}
+.text_name{
+     margin-left: 69px;
+    margin-top: -47px;
+    position: absolute;
+}
+.info_user{
+    font-size: 10px;
+    margin-left: 69px;
+    margin-top: -6px;
+    position: absolute;
+}
+
+.info_numero{
+    display: block;
+    font-size: 10px;
+    padding-top: 8px;
+}
+.div_user_name{
+     width: 620px;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 25px;
+}
+
+.div_user_numero{
+    background: none repeat scroll 0 0 #e9eaea;
+    width: 170px;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 25px;
+}
+
+.div_user_tiempo{
+    width: 220px;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 25px;
+
+}
+
 .button_search, .button_career_first, .button_career_description, .button_career_times{
      cursor: pointer;
+}
+
+.div_tittle_race{
+    background-image: url("images/background_search.png");
+    height: 106px;
+    margin-top: 15px;
+}
+
+.tittle_race{
+    font-size: 36px;
+    margin-left: 307px;
+    padding-top: 37px;
+    color: white;
+}
+
+.div_race{
+    display: inline-block;    
+    width: 330px;
+    height: 340px;
+    border-radius: 5px 5px 5px 5px;    
+    overflow: hidden;
+}
+
+.select_category{
+    background: none repeat scroll 0 0 #4877C0;
+    border: 1px solid;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    height: 50px;
+    padding: 10px;    
+    position: absolute;
+    width: 330px;
+}
+.resumen_carrera{
+    height: 100%;
+    margin-top: 78px;
+    position: relative;
+    width: 100%;
+
+}
+
+.promedio_carrera{
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #5186D9;
+    border-radius: 5px 0 0 0;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 18px;
+    height: 75px;
+    margin-right: -5px;    
+    padding-top: 37px;
+    position: relative;
+    text-align: center;
+    width: 165px;
+}
+
+.promedio_mujeres{
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #e27228;
+    border-radius: 5px 0 0 0;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 18px;
+    height: 75px;
+    margin-right: -5px;    
+    padding-top: 37px;
+    position: relative;
+    text-align: center;
+    width: 165px;
+}
+
+.mejor_tiempo{
+
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #b0bccf;
+    border-radius: 0 5px 0 0;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 18px;
+    height: 75px;
+    margin-right: -5px;    
+    padding-top: 37px;
+    position: relative;
+    text-align: center;
+    width: 165px;
+}
+.div_text_resumen{
+    color: #878FA4;
+    padding-top: 46px;
+    text-align: center;    
+}
+.text_time{
+    font-size: 18px;    
+    
+}
+.val_time{
+    font-size: 58px;   
+}
+
+
+.race_info{    
+    margin-top: 45px;
+    margin-bottom: 45px;
+    margin-left: 290px;
+}
+
+.image_carrera{    
+ width: 330px;
+ height: 225px;
+}
+
+.social{
+    padding-top: 30px;    
+    text-align: center;
+    background: none repeat scroll 0 0 #f4f4f4;
+}
+.twitter{
+    height: 53px;
+    width: 53px;
+    background:url('images/social_ico.png')  -4px;    
+    display: inline-block;
+
+
+}
+
+.twitter:hover{
+ box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.5), 0 0px 40px rgba(0, 0, 0, 0.3), 
+
+    0 0 40px rgba(0, 0, 0, 0.1) inset   
+}
+.fb{
+    background: url("images/social_ico.png") repeat scroll -77px 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 56px;
+    margin-left: 20px;
+    width: 53px;
+}
+
+.fb:hover{
+ box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.5)
+}
+.mail{
+     background: url("images/social_ico.png") repeat scroll -149px -2px rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 53px;
+    margin-left: 20px;
+    width: 53px;
+}
+.mail:hover{
+ box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.5)
+}
+.date_race{
+    font-size: 12px;
+    margin-left: 307px;    
+    color: white;
 }
 
 .twitters{
@@ -183,7 +405,7 @@ nav li:hover{
 .button_career_first{    
     background: url("images/copa.png") no-repeat scroll center center #B0BCCF;
    -moz-box-sizing: border-box;
- color: #FFFFFF;
+    color: #FFFFFF;
     display: inline-block;
     height: 110px;
     padding-top: 91px;
@@ -194,7 +416,7 @@ nav li:hover{
 }
 
 .text_button_career{
-      color: #FFFFFF;
+    color: #FFFFFF;
     text-align: center;
     margin-top: 90px;
 }
@@ -330,3 +552,37 @@ nav li:hover{
     position: absolute;
     width: 55px;
  }
+
+
+
+.caja-sombra
+{
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 
+
+    0 0 40px rgba(0, 0, 0, 0.1) inset
+}
+
+
+#circle {    
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color:black;
+    border: 3px solid #729de0;
+    margin-left: 15px; 
+}
+
+.innerTEXT_a{
+    color: #4877c0;
+    font-size: 35px;
+    left: 31px;
+    position: absolute;    
+}
+
+.innerTEXT_b{
+    color: #4877c0;
+    font-size: 35px;
+    left: 21px;
+    position: absolute;
+    
+}

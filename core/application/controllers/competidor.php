@@ -8,21 +8,23 @@ class competidor extends CI_Controller {
       
     }
 
-    public function test(){        
-        $this->load->model("Test_mdl");
-        $arrData['user_name'] = "Ezequiel Suarez Buitrago";
-
-        try {
-            $this->Test_mdl->addRow($arrData);
-        } catch (exception $e){
-            ToJSONMsg("ERR", $e->getMessage());
-            return;
+    public function get_competidor_categoria(){
+        $this->load->database();
+        var_dump($_GET);
+        die;
+        $param = $_GET['id_categoria'];
+        $query = $this->db->query("SELECT * FROM tbl_carrera where car_nombre like '%".$_GET['term']."%';");         
+        foreach ($query->result_array() as $row)
+        {
+        $options['myData'][] = array(
+            'turninId' =>  $row['car_id'],
+            'title'    => $row['car_nombre']
+           );         
         }
-        $this->load->view('test/test'); 
-    }
-
-    public function ingresar(){
-        echo $_POST;
+        //while ($row_id = $results->fetchArray()) {
+        // more structure in data allows an easier processing
+        //}
+        echo json_encode($options);
     }
 
   

@@ -5,7 +5,7 @@ class Carrera_mdl extends DB_Table {
 	function __construct() {
 		parent::__construct();
 		$this->strTable = "tbl_carrera";
-		$this->strPk = "carrera_id";
+		$this->strPk = "car_id";
     }
 
 }

@@ -5,7 +5,7 @@ class Categoria_mdl extends DB_Table {
 	function __construct() {
 		parent::__construct();
 		$this->strTable = "tbl_categoria";
-		$this->strPk = "categoria_id";
+		$this->strPk = "cat_id";
     }
 
 }

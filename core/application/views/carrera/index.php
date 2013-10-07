@@ -18,8 +18,8 @@
 	<input  type="date" id="fecha" name="fecha"><br>
 	<span>Imagen Carrera</span>
 	 <input type="hidden" name="imagen_carrera" />
-    <!-- Name of input element determines name in $_FILES array -->
-     <input name="imagencarrera" type="file" /><br>
+    <!-- Name of input element determines name in $_FILES array -->	 
+     <input name="imagen_carrera" type="file" /><br>
      <span>Archivo excel</span>
 	 <input type="hidden" name="excel_datos" />
     <!-- Name of input element determines name in $_FILES array -->

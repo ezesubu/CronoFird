@@ -5,7 +5,7 @@ class Competidor_mdl extends DB_Table {
 	function __construct() {
 		parent::__construct();
 		$this->strTable = "tbl_competidor";
-		$this->strPk = "competidor_id";
+		$this->strPk = "com_id";
     }
 
 }

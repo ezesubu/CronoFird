@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="assets/styles//style.css">     
     <link rel="stylesheet" type="text/css" href="assets/styles/ui-lightness/jquery-ui-1.10.3.custom.css">     
 
-    <script type="text/javascript" src="assets/js/jquery.js"></script>  	
+    <script type="text/javascript" src="assets/js/jquery.js"></script>      
+    <script type="text/javascript" src="assets/js/default.js"></script>  	
     <script type="text/javascript" src="assets/js/tab.js"></script>
 	<script type="text/javascript" src="assets/js/common.js"></script>  	
 	<script type="text/javascript" src="assets/js/jquery-ui.js"></script>  	
@@ -38,12 +39,13 @@
         <div class="text_search">
             Busca la carrera en la cual participaste
         </div>
-        <div class = "form_seach"   
-            <form>
-            <input type="text" id="button_search" class="input_search">
-            <div class = "div_search">          
-             <input type="button"  class="button_search">
-            </div>
+        <div class = "form_seach">
+
+            <form name="myform" action="index.php/carrera/show_race">
+                <input type="hidden" id="id_carrera" name="id_carrera" value="el id"/>
+                <input type="text" id="button_search" class="input_search">
+                <div class = "div_search">
+                <input type="submit" class="button_search" value="">
             </form>
         </div>
         
@@ -123,68 +125,6 @@
     </div>
     </footer>
 </body>
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-
-	if ( URL==undefined ) {
-		URL = Front_URL + "articulos/Buscar";
-	}	
-	$("#ingresar").on('click', function(){
-		console.log('<?php echo site_url() ?>');
-		var arrData = Form2Array("form_ingresar");		
-		$.post("index.php/app/test", function(data) {
-			alert(data);
-		});
-	})
-
-	
-	var availableTags = [
-	"ActionScript",
-	"AppleScript",
-	"Asp",
-	"BASIC",
-	"C",
-	"C++",
-	"Clojure",
-	"COBOL",
-	"ColdFusion",
-	"Erlang",
-	"Fortran",
-	"Groovy",
-	"Haskell",
-	"Java",
-	"JavaScript",
-	"Lisp",
-	"Perl",
-	"PHP",
-	"Python",
-	"Ruby",
-	"Scala",
-	"Scheme"
-	];
-	$( "#button_search" ).autocomplete({
-		 source: function(request,response) {
-        $.ajax ( {
-          url: "index.php/carrera/get_race",
-          data: {term: request.term},
-          dataType: "json",
-          success: function(data) {
-             response( $.map( data.myData, function( item ) {
-                return {
-                    label: item.title,
-                    value: item.turninId
-                }
-            	}));
-                 } 
-    }) }
-	});
-});
-
-
-
-</script>
 
 
 
