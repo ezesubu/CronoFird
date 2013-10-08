@@ -80,11 +80,11 @@ a{text-decoration: none:;}
 
 nav {
     color: #2E416B;
-    float: right;
-    margin-left: 46%;
-    margin-right: 20%;
-    margin-top: -47px;
-    position: absolute;
+    display: inline-block;    
+    margin-left: 292px;    
+    position: relative;
+    top: -33px;
+    width: 505px;
 }
 
 nav li{
@@ -102,6 +102,7 @@ nav li:hover{
     background-image: url('images/background_search.png');
     height: 416px;
     margin-top: 15px;
+    text-align: center;
 }
 
 .text_search{
@@ -111,9 +112,9 @@ nav li:hover{
     padding-top: 90px;
 }
 .form_seach{
-    padding-top: 60px;
+    display: inline-block;   
+    position: relative;
     text-align: center;
-    position: relative
 }
 .input_search{
     background: none repeat scroll 0 0 #4877C0;
@@ -122,14 +123,23 @@ nav li:hover{
     font-size: 26px;
     height: 70px;
     padding-left: 30px;   
-    width: 473px;
+    width: 508px;
     border: 1px solid;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 70px;
 }
 
 .div_search{
-    float: none;
-    left: 213px;    
-    top: -67px;
+    left: 432px;
+    position: absolute;
+    top: 5px;
+}
+
+.div_search_index{
+    left: 1131px;
+    position: absolute;
+    top: 65px;
 }
  .button_search{
     background: none repeat scroll 0 0 #8CA3CE;
@@ -141,6 +151,8 @@ nav li:hover{
     width: 70px;    
     border: none;
  }
+
+
 
  .user_list{
     background-image: url('images/background_user.png');
@@ -421,7 +433,8 @@ nav li:hover{
     padding-top: 91px;
     position: relative;
     text-align: center;
-    width: 149px;
+     margin-right: 3px;
+    width: 146px;
    
 }
 
@@ -444,7 +457,8 @@ nav li:hover{
     padding-top: 91px;
     position: relative;
     text-align: center;
-    width: 150px;
+    margin-right: 3px;
+    width: 148px;  
 }
 
 .button_career_description:hover{
@@ -460,7 +474,7 @@ nav li:hover{
     padding-top: 91px;
     position: relative;
     text-align: center;
-    width: 149px;  
+    width: 148px;  
 }
 
 .button_career_times:hover{
@@ -500,12 +514,11 @@ nav li:hover{
 
 
 .footer{    
-    padding: 1px 300px;    
-    height: 100%;
+    padding-left: 320px;
 }
 
 .div_footer{
-    width: 45%;
+    width: 480px;
     margin-top: 40px; 
     background: none repeat scroll 0 0 #FFFFFF;
     display: inline-block;
@@ -525,10 +538,11 @@ nav li:hover{
 .fixed{
     display: inline-block;
     margin-left: 15px;
-    margin-top: 15px;
-    position: absolute;
-    width: 20%;
+    margin-top: 0;
+    position: relative;
     text-align: justify;
+    width: 297px;
+    top: -16px;
 }
 .title{
     display: block;    
@@ -562,18 +576,12 @@ nav li:hover{
     position: absolute;
     width: 55px;
  }
-
-
-
 .caja-sombra
 {
     box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 
 
     0 0 40px rgba(0, 0, 0, 0.1) inset
 }
-
-
-
 .innerTEXT{
     color: #E27228;
     font-size: 29px;

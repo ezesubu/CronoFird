@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE HTML>
 <html>
 
@@ -11,10 +8,10 @@
     <link rel="stylesheet" type="text/css" href="assets/styles/ui-lightness/jquery-ui-1.10.3.custom.css">     
 
     <script type="text/javascript" src="assets/js/jquery.js"></script>      
-    <script type="text/javascript" src="assets/js/default.js"></script>  	
+    <script type="text/javascript" src="assets/js/default.js"></script>     
     <script type="text/javascript" src="assets/js/tab.js"></script>
-	<script type="text/javascript" src="assets/js/common.js"></script>  	
-	<script type="text/javascript" src="assets/js/jquery-ui.js"></script>  	
+    <script type="text/javascript" src="assets/js/common.js"></script>      
+    <script type="text/javascript" src="assets/js/jquery-ui.js"></script>   
      
 </head>
 
@@ -25,7 +22,7 @@
             <img src="assets/image/logo.png">
         <nav>
             <ul>
-                <li>HOME</li>
+                <li>INICIO</li>
                 <li>NOSOTROS</li>
                 <li>CONTACTO</li>
                 <li>LOGIN</li>
@@ -34,19 +31,21 @@
         </div>
     </header>
     
-    <section class="search">
-    
+    <section class="search">    
         <div class="text_search">
             Busca la carrera en la cual participaste
         </div>
-        <div class = "form_seach">
+       
 
-            <form name="myform" action="index.php/carrera/show_race">
-                <input type="hidden" id="id_carrera" name="id_carrera" value="el id"/>
-                <input type="text" id="button_search" class="input_search">
-                <div class = "div_search">
-                <input type="submit" class="button_search" value="">
-            </form>
+         <div class="content_more">        
+            <div class = "form_seach">
+                <form name="myform" action="index.php/carrera/show_race">
+                    <input type="hidden" id="id_carrera" name="id_carrera" value="el id"/>
+                    <input type="text" id="button_search" class="input_search">
+                    <div class = "div_search">
+                    <input type="submit" class="button_search" value="">
+                </form>
+            </div>
         </div>
         
     </section>
@@ -61,42 +60,45 @@
     </section>
     <section class="content">   
         <div class ="content_carriers">
-                <div class="career" id= "tabCarrier">
-                  <div id="tabContainer">
-                    <div class="tabs">
-                        <div class="content_career">
-                        <div class="tabscontent">
-                        <div class="tabpage" id="tabpage_1">                            
-                            <img src="assets/image/first-place.png">
-                        </div>
-                        <div class="tabpage" id="tabpage_2">
-                            <img src="assets/image/resumen.png">
-                        </div>
-                        <div class="tabpage" id="tabpage_3">
-                            <img src="assets/image/tiempos-carrera.png">
-                        </div>
-                    </div>              
-                        </div>
-                        <ul>                                                      
-                            <li id="tabHeader_1">
-                                <div class="button_career_first border_left">
-                                    PRIMER LUGAR
-                                </div>
-                            </li>
-                            <li id="tabHeader_2">
-                                <div class="button_career_description">
-                                    VER CARRERA
-                                </div>
-                            </li>
-                            <li id="tabHeader_3">
-                                <div class="button_career_times border_right">
-                                    TIEMPOS 
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
+            <?php foreach ($carreras as $carrera) { 
+             echo "<div class='career' id= 'tabCarrier'>";
+             echo "<div id='tabContainer'>";
+             echo "<div class='tabs'>";
+             echo "<div class='content_career'>";
+             echo "<div class='tabscontent'>";
+            echo "<div class='tabpage' id='tabpage_1'>";                      
+            echo "<img src='assets/image/first-place.png'>";
+            echo "</div>";
+            echo "<div class='tabpage' id='tabpage_2'>";
+            echo "<img src='assets/image/resumen.png'>";
+            echo "</div>";
+            echo "<div class='tabpage' id='tabpage_3'>";
+            echo "<img src='assets/image/tiempos-carrera.png'>";
+            echo "</div>";
+            echo "</div>";            
+            echo "</div>";
+            echo "<ul>";                                   
+            echo "<li id='tabHeader_1'>";
+            echo "<div class='button_career_first border_left'>";
+            echo "PRIMER LUGAR";
+            echo "</div>";
+            echo "</li>";
+            echo "<li id='tabHeader_2'>";
+            echo "<div class='button_career_description'>";
+            echo "VER CARRERA";
+            echo "</div>";
+            echo "</li>";
+            echo "<li id='tabHeader_3'>";
+            echo "<div class='button_career_times border_right'>";
+            echo "TIEMPOS";
+            echo "</div>";
+            echo "</li>";
+            echo "</ul>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+         }   ?>
+               
             </div>
 
             </div>
@@ -132,3 +134,4 @@
 
 </html>
 
+S

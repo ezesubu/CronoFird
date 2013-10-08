@@ -88,7 +88,7 @@
                     <span>25% HOMBRES</span>
                 </div>
                 <div class="div_text_resumen">                    
-                    <span class="val_time">UNA TORTA</span>
+                    <span class="val_time"></span>
                 </div>
             </div>
         </div>

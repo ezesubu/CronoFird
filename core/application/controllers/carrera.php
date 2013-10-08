@@ -53,6 +53,9 @@ class carrera extends CI_Controller {
         $arrCarrera['car_nombre'] = $_POST['nombre'];
         $arrCarrera['car_imagen'] = $this->image_lib->dest_image;
         $arrCarrera['car_fecha'] = $_POST['fecha'];
+        $arrCarrera['car_facebook'] = $_POST['facebook'];
+        $arrCarrera['car_twitter'] = $_POST['twitter'];
+        $arrCarrera['car_pagina'] = $_POST['pagina'];
         
          try {
             $id_carrera = $this->Carrera_mdl->addRow($arrCarrera);
@@ -118,7 +121,7 @@ class carrera extends CI_Controller {
     public function get_race(){
         $this->load->database();
         $param = $_GET['term'];
-        $query = $this->db->query("SELECT * FROM tbl_carrera where car_nombre like '%".$_GET['term']."%';");         
+        $query = $this->db->query("SELECT * FROM tbl_carrera where car_nombre like '%".$_GET['term']."%';");
         foreach ($query->result_array() as $row)
         {
         $options['myData'][] = array(
