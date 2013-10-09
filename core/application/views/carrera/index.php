@@ -3,9 +3,7 @@
 	<meta charset="utf-8">
 	<title>Ingresar una nueva carrera</title>
 	<script type="text/javascript" src="assets/js/jquery.js"></script>  	
-	<script type="text/javascript" src="assets/js/common.js"></script>  	
-	
-	
+	<script type="text/javascript" src="assets/js/common.js"></script>
 </head>
 <body>
 
@@ -16,6 +14,12 @@
 	<input  type="text" id="nombre" name="nombre"><br>
 	<span>fecha</span>
 	<input  type="date" id="fecha" name="fecha"><br>
+	<span>Twitter</span>
+	<input  type="text" id="twitter" name="twitter"><br>
+	<span>Facebok</span>
+	<input  type="text" id="facebook" name="facebook"><br>
+	<span>Distancia</span>
+	<input  type="text" id="distancia" name="distancia"><br>
 	<span>Imagen Carrera</span>
 	 <input type="hidden" name="imagen_carrera" />
     <!-- Name of input element determines name in $_FILES array -->	 

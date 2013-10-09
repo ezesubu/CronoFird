@@ -326,8 +326,10 @@ nav li:hover{
     text-align: center;    
 }
 .text_time{
+    color: #878FA4;
     font-size: 18px;
-    color:#878FA4;
+    position: relative;
+    top: -17px;
     
 }
 .val_time{
@@ -594,7 +596,7 @@ nav li:hover{
 .tabpage1{
     color: #5186D9;
     font-size: 37px;
-    padding-top: 74px;
+    padding-top: 80px;
     text-align: center;
 }
 

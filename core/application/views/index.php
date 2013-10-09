@@ -68,29 +68,29 @@
                 echo "            <div class='content_career'>";
                 echo "                <div class='tabscontent'>";
                 echo "                    <div class='tabpage tabpage1' id='tabpage_1'>";
-                echo "                            <span>JULIETA ROMAN </span><br>";
-                echo "                         <span class='text_time'>NUMERO DE LA COMPETENCIA 23</span> ";
+                echo "                            <span>".$carrera['primer_lugar']['com_nombre']."</span><br>";
+                echo "                         <span class='text_time'>NUMERO DE LA COMPETENCIA ".$carrera['primer_lugar']['com_numero']."</span> ";
                 echo "                    </div>";
                 echo "                  <div class='tabpage tabpage2' id='tabpage_2'>";
                 echo "                     <div class='image_race'>";
                 echo "                          <img class='image_race' src='upload/".$carrera['car_imagen']."'>";
                 echo "                      </div>";
                 echo "                    <span class='span_text_race'>".$carrera['car_nombre']."</span> <br>";
-                echo "                    <span class='span_info_race'>".$carrera['car_nombre']." <span style='color:#e06217;'>PRUEBA: 10.4 KM</span><p>45% HOMBRES - 35% MUJERES</span> <p>";                  
+                echo "                    <span class='span_info_race'>".$carrera['car_nombre']." <span style='color:#e06217;'>PRUEBA: 10.4 KM</span><p>".$carrera['porcentaje_hombres']."% HOMBRES - ".$carrera['porcentaje_mujeres']."% MUJERES</span> <p>";                  
                 echo "                </div>";
                 echo "                <div class='tabpage' id='tabpage_3'>";
                 echo "                     <div class='time_race'>";
                 echo "                        <div class='name_firt_place'>";
-                echo "                             <span class='name_race_span'>10K Vertical Neusa 2013</span><br>";
-                echo "                            <span class='name_firt_place_span'>".$carrera['car_nombre']."</span>";
+                echo "                             <span class='name_race_span'>".$carrera['car_nombre']."</span><br>";
+                echo "                            <span class='name_firt_place_span'>".$carrera['primer_lugar']['com_nombre']."</span>";
                 echo "                         </div>";
                 echo "                     </div>";
                 echo "                    <div class='time_firt_place'>";
-                echo "                        <span class='time_race_span'>00:29:34</span><br>";
+                echo "                        <span class='time_race_span'>".$carrera['primer_lugar']['com_tiempo_oficial']."</span><br>";
                 echo "                        <span class='description_time_span'>TIEMPO OFICIAL</span>";
                 echo "                    </div>";
                 echo "                    <div class='time_chip'>";
-                echo "                        <span class='time_race_span'>00:29:34</span><br>";
+                echo "                        <span class='time_race_span'>".$carrera['primer_lugar']['com_tiempo_tag']."</span><br>";
                 echo "                        <span class='description_time_span'>TIEMPO CHIP</span>";
                 echo "                    </div>";
                 echo "                </div>";
@@ -116,66 +116,6 @@
                 echo "     </div>";
                 echo " </div>";
          }   ?>
-             
- <div class="career" id= "tabCarrier">
-    <div id="tabContainer">
-        <div class="tabs">
-            <div class="content_career">
-                <div class="tabscontent">
-                      <div class="tabpage tabpage1" id="tabpage_1">
-                            <span>JULIETA ROMAN </span><br>
-                           <span class="text_time">NUMERO DE LA COMPETENCIA 23</span> 
-                      </div>
-                    <div class="tabpage tabpage2" id="tabpage_2">
-                        <div class="image_race">
-                            <img class="image_race" src="assets/image/resumen.png">
-                        </div>
-                       <span class="span_text_race">asdf</span> <br>
-                       <span class="span_info_race">SEPTIEMBRE 22 DE 2013 <span style="color:#e06217;">PRUEBA: 10.4 KM</span><p>45% HOMBRES - 35% MUJERES</span> <p>
-                       
-                        
-                    </div>
-                    <div class="tabpage" id="tabpage_3">
-                        <div class="time_race">
-                            <div class="name_firt_place">
-                                <span class="name_race_span">10K Vertical Neusa 2013</span><br>
-                                <span class="name_firt_place_span">10K Vertical Neusa 2013</span>
-                            </div>                            
-                        </div>
-                        <div class="time_firt_place">
-                            <span class="time_race_span">00:29:34</span><br>
-                            <span class="description_time_span">TIEMPO OFICIAL</span>
-                        </div>
-                        <div class="time_chip">
-                            <span class="time_race_span">00:29:34</span><br>
-                            <span class="description_time_span">TIEMPO CHIP</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <ul>
-            <li id="tabHeader_1">
-                <div class="button_career_first border_left">
-                    PRIMER LUGAR
-                </div>
-            </li>
-            <li id="tabHeader_2">
-                <div class="button_career_description">
-                    VER CARRERA
-                </div>
-            </li>
-            <li id="tabHeader_3">
-                <div class="button_career_times border_right">
-                    TIEMPOS
-                </div>
-            </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-
             </div>
 
             </div>
@@ -190,10 +130,9 @@
                 <div class="square_fooder">
                 </div>
                 <div class ="fixed">                        
-                        <span class="title">PURA VIDA</span><br>
-                        <span class="text_footer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non lectus sit amet arcu faucibus laoreet.</span><br>
+                    <span class="title">PURA VIDA</span><br>
+                    <span class="text_footer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non lectus sit amet arcu faucibus laoreet.</span><br>
                 </div>
-
         </div>        
         <div class="div_footer">
             <input type="text" class="input_form name" placeholder="escriba su nombre completo">

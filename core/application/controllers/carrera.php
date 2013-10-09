@@ -14,20 +14,7 @@ class carrera extends CI_Controller {
       
     }
 
-    public function test(){        
-        $this->load->model("Test_mdl");
-        $arrData['user_name'] = "Ezequiel Suarez Buitrago";
-
-        try {
-            $this->Test_mdl->addRow($arrData);
-        } catch (exception $e){
-            ToJSONMsg("ERR", $e->getMessage());
-            return;
-        }
-        $this->load->view('test/test'); 
-    }
-   
-
+    
     public function guardar_carrera(){
 
                 
@@ -39,7 +26,7 @@ class carrera extends CI_Controller {
         $config2['allowed_types'] = 'gif|jpg|png';
         $config2['image_library'] = 'gd2';            
         $config2['source_image'] =$_FILES['imagen_carrera']['tmp_name'];
-        $config2['new_image'] = "./upload/".$_FILES['imagen_carrera']['name'];        
+        $config2['new_image'] = "./upload/".$_FILES['imagen_carrera']['name'];
         //$config2['width'] = 75;
         $config2['overwrite'] = FALSE;
         //$config2['height'] = 50;
@@ -55,16 +42,13 @@ class carrera extends CI_Controller {
         $arrCarrera['car_fecha'] = $_POST['fecha'];
         $arrCarrera['car_facebook'] = $_POST['facebook'];
         $arrCarrera['car_twitter'] = $_POST['twitter'];
-        $arrCarrera['car_pagina'] = $_POST['pagina'];
         
-         try {
+        try {
             $id_carrera = $this->Carrera_mdl->addRow($arrCarrera);
         } catch (exception $e){
              ToJSONMsg("ERR", $e->getMessage());
              return;
         }
-
-
 
         if ( !empty($_FILES['excel_tados']['tmp_name']) ){
              $strFilePath = $_FILES['excel_tados']['tmp_name'];
@@ -92,7 +76,7 @@ class carrera extends CI_Controller {
                $arrCompetidor['com_tiempo_oficial'] = $usuario['tiempo_oficial'];
                $arrCompetidor['com_tiempo_tag'] = $usuario['tiempo_tag'];
                $arrCompetidor['com_diferencia'] = $usuario['diferencia'];
-               $arrCompetidor['com_paso'] = $usuario['paso'];               
+               $arrCompetidor['com_paso'] = $usuario['paso'];
                $arrCompetidor['rel_cat_id'] = $id_categoria;
 
 
@@ -104,7 +88,7 @@ class carrera extends CI_Controller {
                 }    
             }
             };
-             $this->load->view('index');     
+             $this->load->view('index');
 
         }
 
@@ -137,8 +121,7 @@ class carrera extends CI_Controller {
 
       public function get_usuario_categoria(){
         $this->load->database();
-        var_dump($_GET);
-        die;
+       
         $param = $_GET['id_categoria'];
         $query = $this->db->query("SELECT * FROM tbl_carrera where car_nombre like '%".$_GET['term']."%';");         
         foreach ($query->result_array() as $row)
@@ -155,11 +138,14 @@ class carrera extends CI_Controller {
     }
 
     public function show_race(){
+        $this->load->database();
         $this->load->model("Carrera_mdl");
         $this->load->model("Categoria_mdl");
         $this->load->model("Competidor_mdl");
 
         $id= $_GET['id_carrera'];
+        $carrera_id = $_GET['id_carrera'];
+        
         
         try {
             $objCarrera = $this->Carrera_mdl->getRow_ById($id);
@@ -167,7 +153,6 @@ class carrera extends CI_Controller {
             ToJSONMsg("ERR",$e->getMessage());
             return;
         }
-        
         $objParams->arrWhere = NULL;
         $objParams->arrWhere[] = "rel_car_id=$objCarrera->car_id";
         
@@ -191,6 +176,8 @@ class carrera extends CI_Controller {
                 return;
             }
         }
+        
+        $objView->objResumenes =$this->calcular_promedio($carrera_id);
         $objView->objDatosCompetidor = $objDatosCompetidor;
         $objView->objDatosCategoria = $objDatosCategoria;
         $objView->objCarrera =$objCarrera;
@@ -198,6 +185,46 @@ class carrera extends CI_Controller {
         $this->load->view("carrera/show_race.php",$objView);
        
     }
+
+     public function calcular_promedio($carrera_id){      
+          $query = $this->db->query("SELECT COUNT(*) as total FROM tbl_categoria 
+                                    JOIN tbl_competidor
+                                    ON
+                                    tbl_competidor.rel_cat_id = tbl_categoria.cat_id
+                                    where rel_car_id=".$carrera_id.";");          
+          $total_users = $query->result_array();
+
+          $query = $this->db->query("SELECT COUNT(*) as total FROM tbl_categoria 
+                                    JOIN tbl_competidor
+                                    ON
+                                    tbl_competidor.rel_cat_id = tbl_categoria.cat_id
+                                    where rel_car_id=".$carrera_id." and com_sexo='m'");
+          
+          $masculino = $query->result_array();
+
+          $query = $this->db->query("SELECT COUNT(*) as total FROM tbl_categoria 
+                                    JOIN tbl_competidor
+                                    ON
+                                    tbl_competidor.rel_cat_id = tbl_categoria.cat_id
+                                    where rel_car_id=".$carrera_id." and com_sexo='f'");
+          $femenino = $query->result_array();
+          $query = $this->db->query("SELECT * FROM tbl_categoria 
+                                    JOIN tbl_competidor
+                                    ON
+                                    tbl_competidor.rel_cat_id = tbl_categoria.cat_id
+                                    where rel_car_id=".$carrera_id." and com_posicion_general='1'");
+          
+          $primer_lugar = $query->result_array();
+            
+          $promedio['porcentaje_hombres'] = round(($masculino[0]['total']/$total_users[0]['total'])*100);
+          $promedio['porcentaje_mujeres'] = round(($femenino[0]['total']/$total_users[0]['total'])*100);
+          $promedio['total_users'] = $total_users[0]['total'];
+          $promedio['primer_lugar'] =  $primer_lugar[0];
+          return $promedio;
+
+    }
+
+    
 
     private function _readFile( $strFilePath )
     {

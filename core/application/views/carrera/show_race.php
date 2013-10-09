@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+ <?php var_dump($objResumenes ) ?>
     <header>
         <div class="logo">
             <img src="../../assets/image/logo.png">
