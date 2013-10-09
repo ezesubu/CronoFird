@@ -326,7 +326,8 @@ nav li:hover{
     text-align: center;    
 }
 .text_time{
-    font-size: 18px;    
+    font-size: 18px;
+    color:#878FA4;
     
 }
 .val_time{
@@ -590,3 +591,96 @@ nav li:hover{
     position: absolute;
 }
 
+.tabpage1{
+    color: #5186D9;
+    font-size: 37px;
+    padding-top: 74px;
+    text-align: center;
+}
+
+.tabpage2{
+    color: #5186D9;
+    font-size: 22px;    
+}
+.span_text_race{
+    margin: 10px;
+    position: relative;
+    top: 10px;
+}
+.span_info_race{
+    float: right;
+    margin: 10px;
+    color: #959595;
+    font-size: 12px;
+    text-align: right;
+    
+}
+.image_race{
+     height: 129px;
+    position: relative;
+    width: 457px;
+}
+
+.name_firt_place{
+    position: relative;
+    left: 25px;
+    top: 40px;
+    background: none repeat scroll 0 0 #eeeeee;
+    width: 250px;
+    height: 130px;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+}
+
+.time_firt_place{
+   background: none repeat scroll 0 0 #5186D9;
+    border-radius: 5px 5px 5px 5px;
+    float: right;
+    height: 64px;
+    position: relative;
+    right: 16px;
+    text-align: center;
+    top: -89px;
+    width: 150px;
+}
+.time_chip{
+      background: none repeat scroll 0 0 #B0BCCF;
+    border-radius: 5px 5px 5px 5px;
+    float: right;
+    height: 64px;
+    position: relative;
+    right: -134px;
+    text-align: center;
+    top: -22px;
+    width: 150px;
+}
+.name_race_span{
+   color: #5186D9;
+    font-size: 18px;
+    position: relative;
+    top: 45px;
+}
+
+.name_firt_place_span{
+    color: #B0BCCF;
+    font-size: 12px;
+    position: relative;
+    top: 61px;
+}
+.time_race_span{
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    top: 14px;    
+}
+
+.description_time_span{
+    color: #FFFFFF;
+    font-size: 12px;    
+    position: relative;
+    top: 13px;    
+}
+.tabpage_3{
+    height: 213px;
+}
