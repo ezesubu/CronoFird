@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
+$db['default']['hostname'] = '1lov3.dot5hostingmysql.com';
+$db['default']['username'] = 'kronos';
+$db['default']['password'] = 'ezequiel..2013';
 $db['default']['database'] = 'kronotime';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
