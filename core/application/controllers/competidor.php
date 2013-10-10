@@ -110,6 +110,49 @@ class competidor extends CI_Controller {
 
     }
 
+     public function get_competidor(){
+        $this->load->database();
+        $param = $_GET['term'];
+        $query = $this->db->query("SELECT * FROM tbl_competidor where com_nombre like '%".$_GET['term']."%' and rel_cat_id ='".$_GET['id_categoria']."';");        
+        foreach ($query->result_array() as $row)
+        {
+        $options['myData'][] = array(
+            'turninId' =>  $row['com_id'],
+            'title'    => $row['com_nombre']
+           );         
+        }
+        //while ($row_id = $results->fetchArray()) {
+        // more structure in data allows an easier processing
+        //}
+        echo json_encode($options);
+    }
+
+    public function show(){        
+        
+        $this->load->model("Carrera_mdl");
+        $this->load->model("Categoria_mdl");
+        $this->load->model("Competidor_mdl");
+        
+        try {
+            $objCompetidor = $this->Competidor_mdl->getRow_ById($_GET["id_competidor"]);
+        } catch ( Exception $e){
+            ToJSONMsg("ERR",$e->getMessage());
+            return;
+        }
+
+
+        $query = $this->db->query("SELECT cat_id,car_imagen,car_nombre,car_fecha,car_facebook,car_twitter FROM tbl_categoria 
+                                    JOIN tbl_carrera
+                                    ON
+                                    tbl_categoria.rel_car_id = tbl_carrera.car_id
+                                    where cat_id=".$objCompetidor->rel_cat_id."");
+                        
+        $objView->objCompetidor =$objCompetidor;
+        $objView->objCarrera =$query->row();
+
+
+        $this->load->view("competidor/show.php",$objView); 
+     }
 }
 
 
