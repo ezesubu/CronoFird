@@ -87,6 +87,8 @@ class carrera extends CI_Controller {
                     return;
                 }    
             }
+
+
             };
              $this->load->view('index');
 
@@ -153,10 +155,9 @@ class carrera extends CI_Controller {
             ToJSONMsg("ERR",$e->getMessage());
             return;
         }
-        $objParams->arrWhere = NULL;
+        //$objParams->arrWhere = NULL;
         $objParams->arrWhere[] = "rel_car_id=$objCarrera->car_id";
-        
-        
+                
         try {
             $objDatosCategoria = $this->Categoria_mdl->getAll($objParams); 
         } catch(Exception $e){
@@ -164,10 +165,9 @@ class carrera extends CI_Controller {
             return;
         }
         if($objDatosCategoria->Datos[0]->cat_id){
-        $categoria_id = $objDatosCategoria->Datos[0]->cat_id;
+            $categoria_id = $objDatosCategoria->Datos[0]->cat_id;
             $objParams->arrWhere = NULL;
-            $objParams->arrWhere[] = "rel_cat_id = $categoria_id ";
-            
+            $objParams->arrWhere[] = "rel_cat_id = $categoria_id ";            
             
             try {
                 $objDatosCompetidor = $this->Competidor_mdl->getAll($objParams); 
@@ -176,9 +176,17 @@ class carrera extends CI_Controller {
                 return;
             }
         }
-        
-        $objView->objResumenes =$this->calcular_promedio($carrera_id);
-        $objView->objDatosCompetidor = $objDatosCompetidor;
+       $suma_date = 0;
+         foreach ($objDatosCompetidor->Datos as $hora) {
+            $segundos_oficial= $hora->com_tiempo_oficial;
+            $suma_date +=strtotime($segundos_oficial);
+                
+         }
+            $promedio = $suma_date/count($objDatosCompetidor->Datos);
+            
+        @$objView->promedio = date('h:i:s', $promedio);
+        @$objView->objResumenes =$this->calcular_promedio($categoria_id);
+        @$objView->objDatosCompetidor = $objDatosCompetidor;
         $objView->objDatosCategoria = $objDatosCategoria;
         $objView->objCarrera =$objCarrera;
 
@@ -191,14 +199,14 @@ class carrera extends CI_Controller {
                                     JOIN tbl_competidor
                                     ON
                                     tbl_competidor.rel_cat_id = tbl_categoria.cat_id
-                                    where rel_car_id=".$carrera_id.";");          
+                                    where cat_id=".$carrera_id.";");          
           $total_users = $query->result_array();
 
           $query = $this->db->query("SELECT COUNT(*) as total FROM tbl_categoria 
                                     JOIN tbl_competidor
                                     ON
                                     tbl_competidor.rel_cat_id = tbl_categoria.cat_id
-                                    where rel_car_id=".$carrera_id." and com_sexo='m'");
+                                    where cat_id=".$carrera_id." and com_sexo='M'");
           
           $masculino = $query->result_array();
 
@@ -206,13 +214,13 @@ class carrera extends CI_Controller {
                                     JOIN tbl_competidor
                                     ON
                                     tbl_competidor.rel_cat_id = tbl_categoria.cat_id
-                                    where rel_car_id=".$carrera_id." and com_sexo='f'");
+                                    where cat_id=".$carrera_id." and com_sexo='F'");
           $femenino = $query->result_array();
           $query = $this->db->query("SELECT * FROM tbl_categoria 
                                     JOIN tbl_competidor
                                     ON
                                     tbl_competidor.rel_cat_id = tbl_categoria.cat_id
-                                    where rel_car_id=".$carrera_id." and com_posicion_general='1'");
+                                    where cat_id=".$carrera_id." and com_posicion='1'");
           
           $primer_lugar = $query->result_array();
             
@@ -220,6 +228,8 @@ class carrera extends CI_Controller {
           $promedio['porcentaje_mujeres'] = round(($femenino[0]['total']/$total_users[0]['total'])*100);
           $promedio['total_users'] = $total_users[0]['total'];
           $promedio['primer_lugar'] =  $primer_lugar[0];
+          
+
           return $promedio;
 
     }

@@ -18,9 +18,9 @@ class app extends CI_Controller {
           $carrera['total_users'] = $promedios['total_users'];          
           $carrera['primer_lugar'] =   $promedios['primer_lugar'];
          $las_carreras[] = $carrera;
-         
+         // var_dump($las_carreras);die;     
       }         
-      $objView->carreras = $las_carreras;
+      $objView['carreras'] = $las_carreras;
       $this->load->view('index', $objView);
     }
 
@@ -36,7 +36,7 @@ class app extends CI_Controller {
                                     JOIN tbl_competidor
                                     ON
                                     tbl_competidor.rel_cat_id = tbl_categoria.cat_id
-                                    where rel_car_id=".$carrera_id." and com_sexo='m'");
+                                    where rel_car_id=".$carrera_id." and com_sexo='M'");
           
           $masculino = $query->result_array();
 
@@ -44,7 +44,7 @@ class app extends CI_Controller {
                                     JOIN tbl_competidor
                                     ON
                                     tbl_competidor.rel_cat_id = tbl_categoria.cat_id
-                                    where rel_car_id=".$carrera_id." and com_sexo='f'");
+                                    where rel_car_id=".$carrera_id." and com_sexo='F'");
           $femenino = $query->result_array();
           $query = $this->db->query("SELECT * FROM tbl_categoria 
                                     JOIN tbl_competidor
@@ -52,7 +52,8 @@ class app extends CI_Controller {
                                     tbl_competidor.rel_cat_id = tbl_categoria.cat_id
                                     where rel_car_id=".$carrera_id." and com_posicion_general='1'");
           
-          $primer_lugar = $query->result_array();
+          
+          $primer_lugar = $query->result_array(); 
             
           $promedio['porcentaje_hombres'] = round(($masculino[0]['total']/$total_users[0]['total'])*100);
           $promedio['porcentaje_mujeres'] = round(($femenino[0]['total']/$total_users[0]['total'])*100);

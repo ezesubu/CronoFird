@@ -91,7 +91,7 @@ function getRow($objParams=NULL){
 			throw new Exception( "Identificador de Registro no válido" );
 		}
 		
-		$objParams->strSelect = $strSelect;
+		@$objParams->strSelect = $strSelect;
 		$objParams->arrWhere[] = "$this->strPk={$ID}";
 		
 		$objResult = $this->getRow($objParams);
@@ -177,7 +177,7 @@ function getAll( $objParams=NULL ) {
 			throw new Exception ( DB_ERR_MSG . $this->db->_error_message() );
 		}
 		
-		$objResp->Datos = $objQuery->result();
+		@$objResp->Datos = $objQuery->result();
 		if ( $bolPaginacion == TRUE ) {
 		
 			$objQuery = $this->db->query("SELECT found_rows() as TOTAL");

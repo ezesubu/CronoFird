@@ -16,7 +16,7 @@
 </head>
 
 <body>
- <?php var_dump($objResumenes ) ?>
+ 
     <header>
         <div class="logo">
             <img src="../../assets/image/logo.png">
@@ -42,7 +42,7 @@
 
     <section class="race_info">
         <div class="div_race caja-sombra">
-         <img src="../../upload/<?php echo  $objCarrera->car_imagen?>" class="image_carrera">
+            <img src="../../upload/<?php echo  $objCarrera->car_imagen?>" class="image_carrera">
             <div class="social">
                 <div class="twitter"></div>
                 <div class="fb"></div>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="div_text_resumen">
                     <span class="text_time">Tiempo promedio de la carrera</span>
-                    <span class="val_time">00:45:98</span>
+                    <span class="val_time"><?php echo $promedio ?></span>
                 </div>
             </div>
         </div>    
@@ -82,10 +82,10 @@
             </select>            
             <div class="resumen_carrera caja-sombra">
                 <div class="promedio_mujeres">
-                    <span>75% MUJERES</span>
+                    <span><?php echo $objResumenes['porcentaje_mujeres']?>% MUJERES</span>
                 </div>
                 <div class="mejor_tiempo">
-                    <span>25% HOMBRES</span>
+                    <span><?php echo $objResumenes['porcentaje_hombres']?>% HOMBRES</span>
                 </div>
                 <div class="div_text_resumen">                    
                     <span class="val_time"></span>
