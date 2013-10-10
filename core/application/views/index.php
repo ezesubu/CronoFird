@@ -19,13 +19,14 @@
 
     <header>
         <div class="logo">
-            <img src="assets/image/logo.png">
+            <a  href="<?php echo base_url() ?>" >
+                <img src="assets/image/logo.png">
+            </a>
         <nav>
             <ul>
-                <li>INICIO</li>
+                <li><a  href="<?php echo base_url() ?>" > HOME</a></li>
                 <li>NOSOTROS</li>
-                <li>CONTACTO</li>
-                <li>LOGIN</li>
+                <li>CONTACTO</li>                
             </ul>
         </nav>
         </div>

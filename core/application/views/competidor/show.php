@@ -12,8 +12,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/tab.js')?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/common.js')?>"></script>  	
 	<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script>  	
-     <script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
 </head>
 
 <body>
@@ -53,14 +52,9 @@
         </div>         
        
         <div class="div_race" style="margin-left : 24px;">
-            <select class="select_category"> 
-                    <?php if($objSelectCategoria){
-                    echo "<option selected='selected' value=".$objSelectCategoria->cat_id.">".$objSelectCategoria->cat_nombre."</option>";
-                    }?>
-                   <?php foreach ($objDatosCategoria->Datos as $categoria) {
-                          echo "<option value=".$categoria->cat_id.">".$categoria->cat_nombre."</option>";
-                    }?>
-            </select>            
+            <div class="select_category">         
+            <?php echo $objCompetidor->com_nombre ?>            
+            </div>            
             <div class="resumen_carrera caja-sombra">
                 <div class="promedio_carrera">
                     <span>PROMEDIO</span>
@@ -70,24 +64,20 @@
                 </div>
                 <div class="div_text_resumen">
                     <span class="text_time">Tiempo promedio de la carrera</span>
-                    <span class="val_time"><?php echo $promedio ?></span>
+                    <span class="val_time"></span>
                 </div>
             </div>
         </div>    
 
-      <div class="div_race" style="margin-left : 24px;">
-            <select class="select_category">
-                  <option value="">Seleccione genero</option>
-                  <option value="saab">Masculino</option>
-                  <option value="mercedes">Femenino</option>
-                  
-            </select>            
+      <div class="div_race" style="margin-left : 24px;">      
+           <div class="select_category">                     
+            </div>            
             <div class="resumen_carrera caja-sombra">
                 <div class="promedio_mujeres">
-                    <span><?php echo $objResumenes['porcentaje_mujeres']?>% MUJERES</span>
+                    <span> MUJERES</span>
                 </div>
                 <div class="mejor_tiempo">
-                    <span><?php echo $objResumenes['porcentaje_hombres']?>% HOMBRES</span>
+                    <span>HOMBRES</span>
                 </div>
                 <div class="div_text_resumen" id="torta" >                    
                 </div>
@@ -99,8 +89,8 @@
     <section class="content">
         <div class="content_more">        
             <div class = "form_seach">
-                <form name="myform" action="index.php/carrera/show_race">
-                    <input type="hidden" id="id_carrera" name="id_carrera" value="<?php if(!empty($objSelectCategoria)){echo $objSelectCategoria->cat_id;}else{ echo $categoria->cat_id; } ?>"/>
+                <form name="myform" action="index.php/carrera/show_race">    
+                <input type="hidden" id="id_carrera" name="id_carrera" value="<?php echo  $objCarrera->cat_id?>">                
                     <input type="text" id="search_user" class="input_search" placeholder="Escriba el nombre de competidor">
                     <div class = "div_search">
                     <input type="submit" class="button_search" value="">
@@ -109,32 +99,7 @@
         </div>
         
     </section>
-    <section class="user_list">        
-        <?php foreach ($objDatosCompetidor->Datos as $competidor) {
-            echo "<div class='div_user'>";
-            echo "<div class='div_user_name'>";
-            echo "<span class='innerTEXT'>".$competidor->com_numero."</span>";
-            echo "<div class='text_name'>".$competidor->com_nombre."</div>";
-            if ($competidor->com_sexo == 'M'): 
-            echo "<span class='info_user'>GENERO: HOMBRE</span>";
-            else:
-            echo "<span class='info_user'>GENERO: MUJER</span>";            
-            endif;
-            echo "</div>";
-            echo "<div class='div_user_numero'>";
-            echo $competidor->com_posicion;
-            echo "<span class='info_numero'>NUMERO EN LA COMPETENCIA</span>";
-            echo "</div>";
-            echo "<div class='div_user_numero_general'>";
-            echo $competidor->com_posicion_general;
-            echo "<span class='info_numero'>NUMERO POSICION GENERAL</span>";
-            echo "</div>";
-            echo "<div class='div_user_tiempo'>";
-            echo $competidor->com_tiempo_oficial;
-            echo "<span class='info_numero'>TIEMPO DE LLEGADA</span>";
-            echo "</div>";
-            echo "</div>";  
-        }?>
+    <section class="user_list">               
         
     </section>    
 
@@ -163,39 +128,3 @@
 
 
 </html>
-<script type="text/javascript">
-$(function () {
-        Highcharts.setOptions({
-                colors: ['#FAAD37', '#353535', '#E8E7E7', '#F26E28']
-            });
-    $('#torta').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        exporting: {
-            enabled: false                
-        },
-        title: {
-                        text: ''
-                    },
-                credits: {
-                        enabled: false
-                    },
-        series: [{
-            type: 'pie',
-            data: [
-                ['Hombres',   <?php echo $objResumenes['porcentaje_hombres']?>],
-                ['Mujeres',   <?php echo $objResumenes['porcentaje_mujeres']?>],
-            ],
-                size: '100%',                
-                        
-                        dataLabels: {
-                            enabled: false
-                        }
-        }]
-    });
-});
-
-</script>

@@ -43,6 +43,10 @@ body {
 ol, ul {
     list-style: none;
 }
+
+a {
+    text-decoration: none;
+}
 blockquote, q {
     quotes: none;
 }
@@ -685,4 +689,11 @@ nav li:hover{
 }
 .tabpage_3{
     height: 213px;
+}
+#torta{
+      height: 200px;
+    margin-left: 60px;
+    margin-top: -40px;
+    width: 200px;
+
 }

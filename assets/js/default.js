@@ -35,6 +35,30 @@ $(document).ready(function() {
      }
   });
 
+
+  $( "#search_user" ).autocomplete({
+     source: function(request,response) {
+        $.ajax ( {
+          url: "../competidor/get_competidor",
+          data: {term: request.term, id_categoria:$('#id_carrera').val() },
+          dataType: "json",
+          success: function(data) {
+             response( $.map( data.myData, function( item ) {                
+                return {                    
+                    value: item.title,
+                    _id: item.turninId
+                  }
+              }));
+          },
+        
+      })
+     },
+     select: function (event, ui) {
+        window.location = '../competidor/show?id_competidor='+ui.item._id;      
+     }
+  });
+
+
   
   $('.select_category').change(function() {
     window.location = '../competidor/get_competidor_categoria?id_categoria=' + $('.select_category').val();
