@@ -118,7 +118,13 @@ class competidor extends CI_Controller {
         {
         $options['myData'][] = array(
             'turninId' =>  $row['com_id'],
-            'title'    => $row['com_nombre']
+            'title'    => $row['com_nombre'],
+            'numero'   => $row['com_numero'],
+            'posicion' => $row['com_posicion'],
+            'posicion_general' => $row['com_posicion_general'],
+            'tiempo_oficial' => $row['com_tiempo_oficial'],
+            'diferencia' => $row['com_diferencia'],
+            'paso' => $row['com_paso']
            );         
         }
         //while ($row_id = $results->fetchArray()) {
@@ -141,13 +147,13 @@ class competidor extends CI_Controller {
         }
 
 
-        $query = $this->db->query("SELECT cat_id,car_imagen,car_nombre,car_fecha,car_facebook,car_twitter FROM tbl_categoria 
+        $query = $this->db->query("SELECT cat_id,car_imagen,car_nombre,car_fecha FROM tbl_categoria 
                                     JOIN tbl_carrera
                                     ON
                                     tbl_categoria.rel_car_id = tbl_carrera.car_id
                                     where cat_id=".$objCompetidor->rel_cat_id."");
                         
-        $objView->objCompetidor =$objCompetidor;
+        @$objView->objCompetidor =$objCompetidor;
         $objView->objCarrera =$query->row();
 
 

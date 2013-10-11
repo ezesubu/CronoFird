@@ -70,8 +70,7 @@
         </div>    
 
       <div class="div_race" style="margin-left : 24px;">      
-           <div class="select_category">                     
-            </div>            
+             <input type="text" id="compare_user" class="input_search" placeholder="Eliga contra que competidor comparar">          
             <div class="resumen_carrera caja-sombra">
                 <div class="promedio_mujeres">
                     <span> MUJERES</span>
