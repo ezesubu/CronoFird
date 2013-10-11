@@ -326,14 +326,14 @@ nav li:hover{
 }
 .div_text_resumen{
     color: #878FA4;
-    padding-top: 46px;
+    padding-top: px;
     text-align: center;    
 }
 .text_time{
     color: #878FA4;
     font-size: 18px;
     position: relative;
-    top: -17px;
+    top: -9px;
     
 }
 .val_time{
@@ -599,8 +599,8 @@ nav li:hover{
 
 .tabpage1{
     color: #5186D9;
-    font-size: 37px;
-    padding-top: 80px;
+    font-size: 30px;
+    padding-top: 90px;
     text-align: center;
 }
 
@@ -696,4 +696,104 @@ nav li:hover{
     margin-top: -40px;
     width: 200px;
 
+}
+.name_competidor{
+    background: none repeat scroll 0 0 #E27228;
+    border: 1px solid;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    height: 30px;    
+    padding-left: 10px;
+    padding-top: 10px;
+    position: absolute;
+    width: 320px;
+}
+
+
+.input_search_user{
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #4877C0;
+    border: 1px solid;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    height: 40px;
+    line-height: 70px;
+    padding-left: 30px;
+    width: 330px;
+     position: absolute;
+}
+
+
+.div_tiempo_pistola{
+    color: #878FA4;
+    padding-top: 20px;
+    text-align: center;    
+}
+
+.text_vs{
+    font-weight: bold;
+    color: #878FA4;
+    font-size: 18px;
+    position: relative;
+}
+
+.text_vs_person{
+    color: #878FA4;
+    font-size: 16px;
+    position: relative;
+}
+.text_vs_time{
+    color: #878FA4;
+    font-size: 25px;
+    position: relative;
+}
+
+
+.div_user_vs{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    color: #4877C0;
+    display: inline-block;
+    font-size: 29px;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding-top: 50px;
+    padding-left: 50px;    
+    
+    width: 530px;
+}
+
+.vs_right{
+    margin-left: 80px;
+}
+.vs_left{
+    margin-left:290px;
+}
+.vs_usuario_nombre{
+    color: #E27228;
+    font-size: 20px;
+    float: left;
+}
+.vs_usuario_tiempo{
+ color: #E27228;
+    float: right;
+    font-size: 20px;
+    margin-right: 100px;    
+}
+
+
+.vs_competidor_nombre{
+    color: #878FA4;
+    font-size: 20px;
+    float: left;
+}
+.vs_competidor_tiempo{
+ color: #E27228;
+    float: right;
+    font-size: 20px;
+    margin-right: 100px;    
 }

@@ -63,10 +63,10 @@
         <div class ="content_carriers">
             <?php foreach ($carreras as $carrera) { 
                 
-                echo"           <div class='career' id= 'tabCarrier'>";
-                echo "    <div id='tabContainer'> ";
+                echo"   <div class='career'  id= 'tabCarrier'>";
+                echo "    <div id='tabContainer' class='caja-sombra'> ";
                 echo "        <div class='tabs'>";
-                echo "            <div class='content_career'>";
+                echo "            <div class='content_career '>";
                 echo "                <div class='tabscontent'>";
                 echo "                    <div class='tabpage tabpage1' id='tabpage_1'>";
                 echo "                            <span>".$carrera['primer_lugar']['com_nombre']."</span><br>";

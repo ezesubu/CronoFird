@@ -52,33 +52,39 @@
         </div>         
        
         <div class="div_race" style="margin-left : 24px;">
-            <div class="select_category">         
+            <div class="name_competidor">         
             <?php echo $objCompetidor->com_nombre ?>            
             </div>            
             <div class="resumen_carrera caja-sombra">
                 <div class="promedio_carrera">
-                    <span>PROMEDIO</span>
+                    <span> </span>
                 </div>
                 <div class="mejor_tiempo ">
-                    <span>MEJOR TIEMPO</span>
+                    <span>TIEMPO PISTOLA</span>
                 </div>
-                <div class="div_text_resumen">
-                    <span class="text_time">Tiempo promedio de la carrera</span>
-                    <span class="val_time"></span>
+                <div class="div_tiempo_pistola">
+                    <span class="val_time"><?php echo $objCompetidor->com_tiempo_oficial ?> </span><br><br>
+                     <span class="text_vs">VS</span><br><br>
+                    <span id="tiempo_oficial_" class="text_vs_time"><?php echo $objPrimero->com_tiempo_oficial ?></span><br>
+                    <span class="text_vs_person"><?php echo $objPrimero->com_nombre ?></span>
                 </div>
             </div>
         </div>    
 
       <div class="div_race" style="margin-left : 24px;">      
-             <input type="text" id="compare_user" class="input_search" placeholder="Eliga contra que competidor comparar">          
+             <input type="text" id="compare_user" class="input_search_user" placeholder="Eliga contra que competidor comparar">          
             <div class="resumen_carrera caja-sombra">
-                <div class="promedio_mujeres">
-                    <span> MUJERES</span>
+                <div class="promedio_carrera">
+                    <span> </span>
                 </div>
                 <div class="mejor_tiempo">
-                    <span>HOMBRES</span>
+                    <span>TIEMPO CHIP</span>
                 </div>
-                <div class="div_text_resumen" id="torta" >                    
+                <div class="div_tiempo_pistola">                    
+                    <span class="val_time"><?php echo $objCompetidor->com_tiempo_tag ?></span><br><br>
+                    <span class="text_vs">VS</span><br><br>
+                    <span id="tiempo_tag" class="text_vs_time"><?php echo $objPrimero->com_tiempo_tag ?></span><br>
+                    <span  class="text_vs_person"><?php echo $objPrimero->com_nombre ?></span>
                 </div>
             </div>
         </div>
@@ -96,10 +102,40 @@
                 </form>
             </div>
         </div>
+
+        
         
     </section>
-    <section class="user_list">               
-        
+    <section class="user_list">
+            <div class='div_user_vs vs_left caja-sombra'>
+                <span>Tiempo</span><br><br>
+                <span class="vs_usuario_nombre"> <?php echo $objCompetidor->com_nombre ?></span>
+                <span class="vs_usuario_tiempo"><?php echo $objCompetidor->com_tiempo_oficial ?></span><br>
+                <span class="vs_competidor_nombre"> <?php echo $objPrimero->com_nombre ?></span>
+                <span id="tiempo_oficial" class="vs_competidor_tiempo"><?php echo $objPrimero->com_tiempo_oficial ?></span>      
+            </div>
+            <div class='div_user_vs vs_right caja-sombra'>
+            
+            <span>Posición</span><br><br>
+                <span class="vs_usuario_nombre"> <?php echo $objCompetidor->com_nombre ?></span>
+                <span class="vs_usuario_tiempo"><?php echo $objCompetidor->com_posicion ?></span><br>
+                <span class="vs_competidor_nombre"> <?php echo $objPrimero->com_nombre ?></span>
+                <span  id="posicion" class="vs_competidor_tiempo"><?php echo $objPrimero->com_posicion ?></span>      
+            </div>
+            <div class='div_user_vs vs_left caja-sombra'>
+                <span>Posición General</span><br><br>
+                <span class="vs_usuario_nombre"> <?php echo $objCompetidor->com_nombre ?></span>
+                <span class="vs_usuario_tiempo"><?php echo $objCompetidor->com_posicion_general ?></span><br>
+                <span class="vs_competidor_nombre"> <?php echo $objPrimero->com_nombre ?></span>
+                <span id="posicion_general" class="vs_competidor_tiempo"><?php echo $objPrimero->com_posicion_general ?></span>      
+            </div>
+            <div class='div_user_vs vs_right caja-sombra'>
+                 <span>Paso</span><br><br>
+                <span class="vs_usuario_nombre"> <?php echo $objCompetidor->com_nombre ?></span>
+                <span class="vs_usuario_tiempo"><?php echo $objCompetidor->com_paso ?></span><br>
+                <span class="vs_competidor_nombre"> <?php echo $objPrimero->com_nombre ?></span>
+                <span id="paso" class="vs_competidor_tiempo"><?php echo $objPrimero->com_paso ?></span>      
+            </div>
     </section>    
 
     <footer  class="footer">

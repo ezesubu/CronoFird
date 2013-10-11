@@ -111,7 +111,7 @@
     </section>
     <section class="user_list">        
         <?php foreach ($objDatosCompetidor->Datos as $competidor) {
-            echo "<div class='div_user'>";
+            echo "<div class='div_user caja-sombra'>";
             echo "<div class='div_user_name'>";
             echo "<span class='innerTEXT'>".$competidor->com_numero."</span>";
             echo "<div class='text_name'>".$competidor->com_nombre."</div>";

@@ -123,6 +123,7 @@ class competidor extends CI_Controller {
             'posicion' => $row['com_posicion'],
             'posicion_general' => $row['com_posicion_general'],
             'tiempo_oficial' => $row['com_tiempo_oficial'],
+            'tiempo_tag' => $row['com_tiempo_tag'],
             'diferencia' => $row['com_diferencia'],
             'paso' => $row['com_paso']
            );         
@@ -152,9 +153,11 @@ class competidor extends CI_Controller {
                                     ON
                                     tbl_categoria.rel_car_id = tbl_carrera.car_id
                                     where cat_id=".$objCompetidor->rel_cat_id."");
-                        
+        $query_first = $this->db->query("SELECT * FROM tbl_competidor where  com_posicion_general='1'");
+       
         @$objView->objCompetidor =$objCompetidor;
         $objView->objCarrera =$query->row();
+        $objView->objPrimero =$query_first->row();
 
 
         $this->load->view("competidor/show.php",$objView); 
